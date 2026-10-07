@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24231e">
+  <meta name="description" content="Explore Café & Co coffee, food, and pickup orders.">
+  <title>Café & Co | Coffee, food, and a moment to stay</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,0,0;9..144,500,0,0;9..144,600,0,0&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/hero.jpg" as="image">
+  <link rel="stylesheet" href="styles.css?v=6">
+  <script src="menu.js?v=6" defer></script>
+  <script src="app.js?v=6" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Café & Co, back to top">
+      <span class="brand-symbol" aria-hidden="true">&amp;</span>
+      <span class="brand-name">CAFÉ <i>&amp;</i> CO<span class="brand-dot">.</span></span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <a href="#menu">Menu</a>
+      <a href="#pickup">How pickup works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="bag-button" id="open-cart" type="button" aria-label="Open order bag, 0 items">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8h16l-1.2 12H5.2L4 8Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+      <span>My order</span><span class="bag-count" id="bag-count">0</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-sticky" id="hero-stage">
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-poster"></div>
+          <video id="hero-video" muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video>
+          <div class="hero-vignette"></div>
+        </div>
+        <div class="hero-copy wrap">
+          <p class="eyebrow hero-eyebrow">A LITTLE TIME, WELL SPENT <span class="eyebrow-line"></span> CAFÉ &amp; CO</p>
+          <div class="hero-beat active" data-beat="0">
+            <h1 id="hero-title">Come in for <em>the moment.</em></h1>
+            <p>Good coffee and good company have a way of slowing the day down.</p>
+          </div>
+          <div class="hero-beat" data-beat="1" aria-hidden="true">
+            <h2>Made for your <em>coffee pause.</em></h2>
+            <p>Pick your favourite drink. Add something good to eat.</p>
+          </div>
+          <div class="hero-beat" data-beat="2" aria-hidden="true">
+            <h2>Your order, <em>your time.</em></h2>
+            <p>Choose your pickup time and send your order in one easy step.</p>
+          </div>
+          <a class="button button-light hero-cta" href="#menu">Explore the menu <span aria-hidden="true">↗</span></a>
+        </div>
+        <span class="hero-status" id="hero-status" role="status"></span>
+      </div>
+    </section>
+
+    <section class="intro section-pad" aria-labelledby="intro-title">
+      <div class="wrap intro-grid">
+        <div class="intro-visual reveal"><p class="kicker">01 / THE CAFÉ</p><img src="assets/menu/cappuccino.webp" alt="A cappuccino with rosetta latte art on a warm café table" width="1200" height="900" loading="lazy"></div>
+        <div>
+          <h2 class="section-title reveal" id="intro-title">The everyday deserves <em>a good cup.</em></h2>
+          <p class="intro-text reveal">Take a look around, find something you like, and make a little room in your day for it. Your pickup order starts below.</p>
+          <a class="text-link reveal" href="#menu">See what’s on the menu <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true"><div>COFFEE <span>✦</span> CONVERSATION <span>✦</span> SOMETHING GOOD TO EAT <span>✦</span> COFFEE <span>✦</span> CONVERSATION <span>✦</span> SOMETHING GOOD TO EAT <span>✦</span></div></div>
+    </section>
+
+    <section class="menu-section section-pad" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <div><p class="kicker">02 / THE MENU</p><h2 class="section-title" id="menu-title">Choose your <em>usual.</em><br>Or a new favourite.</h2></div>
+          <p>Drinks, bakery treats, and a bite to eat. Add anything you like to your order bag.</p>
+        </div>
+        <div class="menu-toolbar">
+          <div class="menu-filters" role="group" aria-label="Filter menu">
+            <button class="filter active" type="button" data-filter="all" aria-pressed="true">Everything</button>
+            <button class="filter" type="button" data-filter="coffee" aria-pressed="false">Coffee &amp; tea</button>
+            <button class="filter" type="button" data-filter="cold" aria-pressed="false">Over ice</button>
+            <button class="filter" type="button" data-filter="bakery" aria-pressed="false">Something sweet</button>
+            <button class="filter" type="button" data-filter="food" aria-pressed="false">A good bite</button>
+          </div>
+          <label class="menu-search"><span class="sr-only">Search menu</span><span aria-hidden="true">⌕</span><input id="menu-search" type="search" placeholder="Find your favourite…" autocomplete="off"></label>
+        </div>
+        <div class="menu-meta"><span id="menu-result-count" role="status">18 things to look forward to</span><span>Prices in PKR</span></div>
+        <div class="menu-grid" id="menu-list"></div>
+        <div class="menu-empty" id="menu-empty" hidden><h3>No matches just yet.</h3><p>Try another name, or explore the full menu.</p><button type="button" class="button button-dark" id="clear-menu">Show everything</button></div>
+        <p class="menu-footnote">Made your picks? Your order bag is always at the top. Add any preferences in the optional notes at checkout.</p>
+      </div>
+    </section>
+
+    <section class="feature-section" aria-labelledby="feature-title">
+      <div class="feature-photo"><img src="assets/food.jpg" alt="Sandwich, croissant, and brownie on a café table" loading="lazy"></div>
+      <div class="feature-copy">
+        <p class="kicker reveal">A LITTLE SOMETHING EXTRA</p>
+        <h2 class="section-title reveal" id="feature-title">Stay for the bite <em>after the sip.</em></h2>
+        <p class="reveal">A pastry with your coffee. A sandwich when lunch calls. Make your order your own.</p>
+        <a class="button button-outline reveal" href="#menu">Build my order <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="pickup-section section-pad" id="pickup" aria-labelledby="pickup-title">
+      <div class="wrap">
+        <p class="kicker reveal">03 / PICKUP, MADE SIMPLE</p>
+        <div class="pickup-heading"><h2 class="section-title reveal" id="pickup-title">A few taps from <em>your next cup.</em></h2><p class="reveal" id="pickup-intro">Choose your favourites, request a pickup time, and send your order on WhatsApp.</p></div>
+        <div class="steps">
+          <article class="step reveal"><span class="step-number">01</span><div class="step-line"></div><h3>Choose your favourites</h3><p>Add drinks and food to your bag. Change quantities whenever you like.</p></article>
+          <article class="step reveal"><span class="step-number">02</span><div class="step-line"></div><h3>Tell us when</h3><p>Choose ASAP or request a pickup time. Add a note if you need to.</p></article>
+          <article class="step reveal"><span class="step-number">03</span><div class="step-line"></div><h3 id="last-step-title">Send on WhatsApp</h3><p id="last-step-copy">Check your order, send the message, and wait for the café to confirm your pickup.</p></article>
+        </div>
+        <button class="button button-dark pickup-button" id="pickup-order-button" type="button">View my order <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner">
+        <p class="kicker">04 / GET IN TOUCH</p>
+        <h2 id="contact-title">Good coffee starts <em>with hello.</em></h2>
+        <p id="contact-details">Have a question about your order? Talk to us on WhatsApp at 0323 6881910.</p>
+        <a href="#menu" class="button button-light">Explore the menu <span aria-hidden="true">↗</span></a>
+        <div class="contact-decoration" aria-hidden="true">&amp;</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-main"><a class="brand footer-brand" href="#home"><span class="brand-symbol" aria-hidden="true">&amp;</span><span class="brand-name">CAFÉ <i>&amp;</i> CO<span class="brand-dot">.</span></span></a><p>A little time, well spent.</p><a href="#home">Back to top ↑</a></div>
+    <div class="wrap footer-bottom"><span>© <span id="year"></span> Café &amp; Co</span><span id="footer-disclaimer">Coffee, food &amp; good company</span></div>
+  </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-title">
+    <div class="dialog-head"><div><p class="kicker">YOUR PICKUP ORDER</p><h2 id="order-title">Your order bag</h2></div><button class="close-button" id="close-cart" type="button" aria-label="Close order bag">×</button></div>
+    <div class="dialog-scroll">
+      <div id="empty-cart" class="empty-cart"><span aria-hidden="true">✳</span><h3>Nothing in your bag yet.</h3><p>Find a drink or a bite on the menu to get started.</p><button class="button button-dark" id="browse-menu" type="button">Browse the menu</button></div>
+      <div id="filled-cart" hidden>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-total"><span>Estimated total</span><strong id="cart-total">PKR 0</strong></div>
+        <p class="cart-price-note" id="cart-price-note">Your order and pickup time are confirmed by the café on WhatsApp.</p>
+        <form id="order-form">
+          <div class="form-row"><label for="customer-name">Your name <span>*</span></label><input id="customer-name" name="name" autocomplete="name" required maxlength="80" placeholder="Your name"></div>
+          <div class="form-row"><label for="customer-phone">Phone number <span>*</span></label><input id="customer-phone" name="phone" autocomplete="tel" inputmode="tel" required minlength="10" maxlength="20" pattern="[+0-9 ()-]{10,20}" placeholder="03XX XXXXXXX"><small>Used only in the WhatsApp order message.</small></div>
+          <fieldset class="pickup-choice"><legend>Pickup time <span>*</span></legend><label><input type="radio" name="pickup" value="asap" checked><span>ASAP</span></label><label><input type="radio" name="pickup" value="scheduled"><span>Schedule</span></label></fieldset>
+          <div class="form-row schedule-row" id="schedule-row" hidden><label for="pickup-datetime">Requested date and time <span>*</span></label><input id="pickup-datetime" name="datetime" type="datetime-local"><small>The café will confirm availability in WhatsApp.</small></div>
+          <div class="form-row"><label for="order-notes">Order notes <span class="optional">optional</span></label><textarea id="order-notes" name="notes" rows="3" maxlength="400" placeholder="Any preferences for your order?"></textarea></div>
+          <button class="button button-dark preview-button" type="submit">Check my order <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="message-preview" id="message-preview" hidden><div class="preview-heading"><h3>Your WhatsApp message</h3></div><pre id="message-text"></pre><p id="send-help">WhatsApp opens with your order. Tap send there; the café will reply to confirm your pickup.</p><button class="button button-dark" type="button">Send order on WhatsApp</button></div>
+      </div>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
